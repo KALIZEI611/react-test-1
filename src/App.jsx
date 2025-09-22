@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import JournalItem from './components/JournalItem/JournalItem';
 import JournalList from './components/JournalList/JournalList';
-import Body from './layout/Body/Bode';
+import Body from './layout/Body/Body';
 import LeftPanel from './layout/LeftPanel/LeftPanel';
 import './App.css';
 
