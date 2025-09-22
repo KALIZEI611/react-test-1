@@ -1,18 +1,8 @@
 import './Body.css';
-import LayoutDate from '../LayoutDate/LayoutDate';
 
-function Body({ title, body, date }) {
+function Body({children}) {
 	return (
-		<>
-			<div className="body">
-				<h1 className="body-item__header">{title}</h1>
-				<p>
-					<LayoutDate date={date} />
-				</p>
-				<div className="body-item__text">{body}</div>
-			</div>
-		</>
-	);
+		<div className="body">{children}</div>);
 }
 
 export default Body;
