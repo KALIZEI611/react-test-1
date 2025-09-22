@@ -23,10 +23,10 @@ function App() {
 			date: new Date()
 		}
 	];
-	/*const change = (event) => {
+	const change = (event) => {
 		console.log(event);
-		console.log(event.target.input);
-	};*/
+		console.log(event.target.value);
+	};
 	return (
 		<div className="app">
 			<LeftPanel>
@@ -49,7 +49,9 @@ function App() {
 					</CardButton>
 				</JournalList>
 			</LeftPanel>
-			<Body title={data[0].title} body={data[0].body} date={data[0].date} />
+			<Body>
+				<input type="text" onChange={change}></input>
+			</Body>
 		</div>
 	);
 }
