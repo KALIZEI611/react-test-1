@@ -1,4 +1,4 @@
-import Button from './components/Button/Button';
+
 import CardButton from './components/CardButton/CardButton';
 import Header from './components/Header/Header';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
@@ -23,7 +23,7 @@ function App() {
 	];
 	const change = (event) => {
 		console.log(event);
-		console.log(event.target.input);
+		console.log(event.target.value);
 	};
 	return (
 		<div className="app">
