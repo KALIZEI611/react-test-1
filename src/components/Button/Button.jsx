@@ -4,8 +4,8 @@ function Button() {
 	//let text = 'Сохранить';
 	const [text, setText] = useState('Сохранить');
 	const click = () => {
-		setText('Закрыть');
-		console.log('click');
+		setText(t=>t+'!');
+		console.log(text);
 	};
 	return (
 		<button onClick={click} className="button acent">
