@@ -1,4 +1,4 @@
-import Button from './components/Button/Button';
+
 import CardButton from './components/CardButton/CardButton';
 import Header from './components/Header/Header';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
@@ -7,9 +7,10 @@ import JournalList from './components/JournalList/JournalList';
 import Body from './layout/Body/Body';
 import LeftPanel from './layout/LeftPanel/LeftPanel';
 import './App.css';
+import JournalForm from './components/JournalForm/JournalForm';
+import { useState } from 'react';
 
-function App() {
-	const data = [
+const INITIAL_DATA = [
 		{
 			title: 'Подготовка к обновлению курсов',
 			text: 'Горные походы вместе с Павлом и нашей группой П23 в Сочи',
@@ -22,35 +23,39 @@ function App() {
 			text: 'Походы в кальяную с Павлом ',
 			date: new Date()
 		}
-	];
-	const change = (event) => {
-		console.log(event);
-		console.log(event.target.value);
+];
+
+function App() {
+	const [items,setItems]=useState(INITIAL_DATA);
+	
+	const addItem=item =>{
+		setItems(oldItems => [...oldItems,{
+			text:item.text,
+			title:item.title,
+			date:new Date(item.date)
+		}]);
 	};
+
 	return (
 		<div className="app">
 			<LeftPanel>
 				<Header />
 				<JournalAddButton />
 				<JournalList>
-					<CardButton>
+					{items.map(el => (
+						<CardButton>
 						<JournalItem
-							title={data[0].title}
-							text={data[0].text}
-							date={data[0].date}
+							title={el.title}
+							text={el.text}
+							date={el.date}
 						/>
-					</CardButton>
-					<CardButton>
-						<JournalItem
-							title={data[1].title}
-							text={data[1].text}
-							date={data[1].date}
-						/>
-					</CardButton>
+						</CardButton>
+						
+					))}
 				</JournalList>
 			</LeftPanel>
 			<Body>
-				<input type="text" onChange={change}></input>
+				<JournalForm onSubmit={addItem}/>
 			</Body>
 		</div>
 	);
