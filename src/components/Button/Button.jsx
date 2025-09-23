@@ -1,7 +1,7 @@
 import './Button.css';
-function Button({text}) {
+function Button({text , onClick}) {
 	return (
-		<button className="button acent">{text}</button>
+		<button className="button acent" onClick={onClick}>{text}</button>
 	);
 }
 
