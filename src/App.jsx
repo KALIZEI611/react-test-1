@@ -10,6 +10,7 @@ import './App.css';
 import JournalForm from './components/JournalForm/JournalForm';
 
 function App() {
+
     const data = [
         {
             title: 'Подготовка к обновлению курсов',
