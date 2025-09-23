@@ -13,7 +13,9 @@ function App() {
 		{
 			title: 'Подготовка к обновлению курсов',
 			text: 'Горные походы вместе с Павлом и нашей группой П23 в Сочи',
-			date: new Date()
+			date: new Date(),
+			body:
+				'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere ipsam nobis quis quaerat blanditiis porro modi adipisci in cupiditate expedita inventore, quisquam iusto non vitae, minima assumenda architecto sit est!'
 		},
 		{
 			title: 'Отдых  ',
