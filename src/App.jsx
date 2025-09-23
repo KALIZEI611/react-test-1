@@ -32,27 +32,17 @@ function App() {
 		setItems(oldItems => [...oldItems,{
 			text:item.text,
 			title:item.title,
-			date:new Date(item.date)
+			date:new Date(item.date),
+			id:Math.max(...oldItems.map(i => i.id))+1
 		}]);
 	};
-
+	
 	return (
 		<div className="app">
 			<LeftPanel>
 				<Header />
 				<JournalAddButton />
-				<JournalList>
-					{items.map(el => (
-						<CardButton>
-						<JournalItem
-							title={el.title}
-							text={el.text}
-							date={el.date}
-						/>
-						</CardButton>
-						
-					))}
-				</JournalList>
+				<JournalList items={items}/>
 			</LeftPanel>
 			<Body>
 				<JournalForm onSubmit={addItem}/>
