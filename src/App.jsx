@@ -7,6 +7,7 @@ import JournalList from './components/JournalList/JournalList';
 import Body from './layout/Body/Body';
 import LeftPanel from './layout/LeftPanel/LeftPanel';
 import './App.css';
+import JournalForm from './components/JournalForm/JournalForm';
 
 function App() {
 	const data = [
@@ -50,7 +51,7 @@ function App() {
 				</JournalList>
 			</LeftPanel>
 			<Body>
-				<input type="text" onChange={change}></input>
+				<JournalForm/>
 			</Body>
 		</div>
 	);
