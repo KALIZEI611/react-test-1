@@ -6,8 +6,9 @@ const Input = forwardRef(function Input({className,isValid,appearence , ...props
     return(
             <input {...props} ref={ref} className={cn(className,styles['input'], {
                 [styles['invalid']] : isValid,
-                [styles['input-title']]:appearence==='title'
-                })}/>
+                [styles['input-title']]:appearence=='title',
+                [styles['input']]:appearence=='text'
+                })} {...props}/>
     );
 })
 
