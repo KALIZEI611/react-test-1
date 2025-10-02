@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import CardButton from '../CardButton/CardButton';
 import JournalItem from '../JournalItem/JournalItem';
 import './JournalList.css';
@@ -6,10 +6,6 @@ import { UserContext } from '../../context/user.context';
 
 function JournalList({ items }) {
 	const {userId}=useContext(UserContext);
-
-	if(items.length === 0){
-		return <p>Записей пока нет, добавьте первую</p>;
-	}
 	const sortItem =(a,b)=>{
 		if(a.date < b.date){
 			return 1;
@@ -17,11 +13,18 @@ function JournalList({ items }) {
 			return-1;
 		}
 	};
-	return	<>
-		{items
+	
+	const filterItems=useMemo(() => items
 			.filter(el => el.userId === userId)
-			.sort(sortItem)
-			.map(el => (
+			.sort(sortItem),[items,userId]);
+
+
+	if(items.length === 0){
+		return <p>Записей пока нет, добавьте первую</p>;
+	}
+	
+	return	<>
+		{filterItems.map(el => (
 				<CardButton key={el.id}>
 					<JournalItem 
 						title={el.title}
