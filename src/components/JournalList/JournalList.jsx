@@ -4,7 +4,7 @@ import JournalItem from '../JournalItem/JournalItem';
 import './JournalList.css';
 import { UserContext } from '../../context/user.context';
 
-function JournalList({ items }) {
+function JournalList({ items , setItem}) {
 	const {userId}=useContext(UserContext);
 	const sortItem =(a,b)=>{
 		if(a.date < b.date){
@@ -25,7 +25,7 @@ function JournalList({ items }) {
 	
 	return	<>
 		{filterItems.map(el => (
-				<CardButton key={el.id}>
+				<CardButton key={el.id} onClick={()=> setItem(el)}>
 					<JournalItem 
 						title={el.title}
 						post={el.post}
