@@ -1,7 +1,16 @@
-import './Header.css';
+import SelectUser from '../SelectUser/SelectUser';
+import Logo from '../Logo/Logo';
+
+const logos=['/logo.svg','/vite.svg'];
 
 function Header() {
-	return <img className="logo" src="/logo.svg" alt="Логотип журнала" />;
+	
+	return (
+	<>
+		<Logo image={logos[0]}/>
+		<SelectUser />
+	</>
+	);
 }
 
 export default Header;
